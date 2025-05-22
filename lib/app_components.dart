@@ -1,12 +1,11 @@
 library app_components;
 
 // Export themes
-export 'src/themes/red_sea_theme.dart' show YPAYTheme;
+export 'src/themes/ypay_theme.dart';
 export 'src/themes/velox_pays_theme.dart';
 
-// Export components
-export 'src/components/red_sea_components.dart' show YPAYComponents;
-export 'src/components/velox_pays_components.dart';
+// Export the common component
+export 'src/components/app_text_field.dart';
 
 /// A Calculator.
 class Calculator {

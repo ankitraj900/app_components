@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'YPAY Login Demo',
-      theme: YPAYTheme.theme,
+      title: 'VeloxPAYS Login Demo',
+      theme: VeloxPAYSTheme.theme,
       home: const LoginPage(),
       debugShowCheckedModeBanner: false,
     );
@@ -30,7 +30,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _remember = false;
-  bool _showPassword = false;
 
   @override
   void dispose() {
@@ -55,13 +54,11 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               const SizedBox(height: 16),
               Text('Login', style: theme.textTheme.headlineMedium),
-             
               const SizedBox(height: 32),
               Text('Email Address', style: theme.textTheme.bodyLarge),
               const SizedBox(height: 8),
-              VeloxPAYSComponents.textField(
+              AppTextField(
                 controller: _emailController,
-               // labelText: 'Email Address',
                 hintText: 'ankit@gmail.com',
                 prefixIcon: Icons.mail,
                 keyboardType: TextInputType.emailAddress,
@@ -69,18 +66,11 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 24),
               Text('Password', style: theme.textTheme.bodyLarge),
               const SizedBox(height: 8),
-              VeloxPAYSComponents.textField(
+              AppTextField(
                 controller: _passwordController,
-               // labelText: 'Password',
                 hintText: '********************',
                 prefixIcon: Icons.lock,
                 isPassword: true,
-                showPassword: _showPassword,
-                onTogglePassword: () {
-                  setState(() {
-                    _showPassword = !_showPassword;
-                  });
-                },
               ),
               const SizedBox(height: 8),
               Row(
@@ -96,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(
-                        color: theme.primaryColor,
+                        color: Colors.blue,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
